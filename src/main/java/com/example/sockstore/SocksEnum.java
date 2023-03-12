@@ -1,2 +1,5 @@
-package com.example.sockstore;public enum SocksEnum {
+package com.example.sockstore;
+
+public enum SocksEnum {
+    moreThan, lessThan, equal
 }

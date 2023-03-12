@@ -1,16 +1,16 @@
 package com.example.sockstore.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
 
 @Data
 @Entity
 @Table(name = "socks")
-public class SocksEntity {
+public class Socks {
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 private String color;
 private Integer cottonPart;
