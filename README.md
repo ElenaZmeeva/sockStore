@@ -4,7 +4,7 @@
 
 Позволяет добавлять , отпускать и узнавать количество носков на складе в зависимости от цвета и процентного содержания хлопка в составе. 
 
-Spring(Boot) Framework, Hibernate, Liquibase, PostgresSQL, Maven, MapStruct.
+Spring(Boot) Framework, Hibernate, Liquibase, PostgreSQL, Maven, MapStruct.
 
 
 ## **Содержит следующие URL HTTP- методы: **
