@@ -50,9 +50,9 @@ public class SocksService {
      * Добавление носков на склад
      */
     public SocksDto addSocks(SocksDto socksDto){
-        Socks socks=mapper.toEntity(socksDto);
-        socksRepository.findByColorAndCottonPart(socksDto.getColor(), socksDto.getCottonPart()).orElse(null);
-        assert socks != null;
+       // Socks socks=mapper.toEntity(socksDto);
+        Socks socks=socksRepository.findByColorAndCottonPart(socksDto.getColor(), socksDto.getCottonPart())
+                .orElse(new Socks(socksDto.getId(), socksDto.getColor(), socksDto.getCottonPart(), socksDto.getQuantity()));
         socks.setQuantity(socks.getQuantity()+ socksDto.getQuantity());
         socks.setColor(socksDto.getColor());
         socks.setCottonPart(socksDto.getCottonPart());
@@ -65,9 +65,12 @@ public class SocksService {
      * Отпуск носков со склада
      */
     public SocksDto outcomeSocks(SocksDto socksDto){
-        Socks socks=mapper.toEntity(socksDto);
-        socksRepository.findByColorAndCottonPart(socksDto.getColor(), socksDto.getCottonPart()).orElse(null);
+        //Socks socks=mapper.toEntity(socksDto);
+        Socks socks=socksRepository.findByColorAndCottonPart(socksDto.getColor(), socksDto.getCottonPart()).orElse(null);
         assert socks != null;
+        if (socks.getQuantity()<socksDto.getQuantity()){
+            throw new RuntimeException("Такого количества носков нет на складе!");
+        }
         socks.setQuantity(socks.getQuantity()- socksDto.getQuantity());
         socksRepository.save(socks);
         log.info("Socks are given away from warehouse");
