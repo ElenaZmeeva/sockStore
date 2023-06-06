@@ -37,11 +37,11 @@ public class SocksServiceTest {
     @Test
     void testFindCountSocks() {
     when(repository.countSocksByCottonPartGreaterThan(20)).thenReturn(20);
-        Assertions.assertEquals(20,20);
+        Assertions.assertEquals(20,repository.countSocksByCottonPartGreaterThan(20));
     when(repository.countSocksByCottonPartEquals(50)).thenReturn(50);
-        Assertions.assertEquals(50,50);
+        Assertions.assertEquals(50,repository.countSocksByCottonPartEquals(50));
     when(repository.countSocksByCottonPartLessThan(30)).thenReturn(30);
-        Assertions.assertEquals(30,30);
+        Assertions.assertEquals(30,repository.countSocksByCottonPartLessThan(30));
     }
 
     @Test
