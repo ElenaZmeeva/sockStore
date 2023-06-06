@@ -1,5 +1,4 @@
 package com.example.sockstore.repository;
-
 import com.example.sockstore.SocksEnum;
 import com.example.sockstore.entity.Socks;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,6 +21,7 @@ public interface SocksRepository extends JpaRepository<Socks, Long> {
 
     Optional<Socks>findByColorAndCottonPart(String color, int cottonPart);
 
-@Query(value = "SELECT SUM(quantity) FROM socks", nativeQuery = true)
+    @Query(value = "SELECT SUM(quantity) FROM socks", nativeQuery = true)
     Integer countSocks(SocksEnum socksEnum);
 }
+

@@ -49,7 +49,4 @@ public class SocksService {
         return socksRepository.save(outcomeSocks);
     }
 
-    public List<Socks> findAllSocks(){
-      return  socksRepository.findAll();
-    }
 }
